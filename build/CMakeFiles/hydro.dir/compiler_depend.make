@@ -205,6 +205,8 @@ CMakeFiles/hydro.dir/src/main.cpp.o: /home/pedro/dev/compiler/hydrogen/src/main.
   /usr/include/c++/12/bits/stl_vector.h \
   /usr/include/c++/12/bits/stl_bvector.h \
   /usr/include/c++/12/bits/vector.tcc \
+  /home/pedro/dev/compiler/hydrogen/src/generation.hpp \
+  /home/pedro/dev/compiler/hydrogen/src/parser.hpp \
   /home/pedro/dev/compiler/hydrogen/src/tokenization.hpp
 
 
@@ -376,6 +378,8 @@ CMakeFiles/hydro.dir/src/main.cpp.o: /home/pedro/dev/compiler/hydrogen/src/main.
 
 /usr/include/c++/12/exception:
 
+/home/pedro/dev/compiler/hydrogen/src/generation.hpp:
+
 /usr/include/c++/12/bits/std_abs.h:
 
 /usr/include/c++/12/debug/assertions.h:
@@ -533,6 +537,8 @@ CMakeFiles/hydro.dir/src/main.cpp.o: /home/pedro/dev/compiler/hydrogen/src/main.
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/c++/12/bits/utility.h:
+
+/home/pedro/dev/compiler/hydrogen/src/parser.hpp:
 
 /usr/include/c++/12/bits/locale_facets.tcc:
 

@@ -1,8 +1,5 @@
 {
 	"files.associations": {
-		"*.embeddedhtml": "html",
-		"*.css": "tailwindcss",
-		"*.erb": "erb",
 		"array": "cpp",
 		"atomic": "cpp",
 		"bit": "cpp",

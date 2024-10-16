@@ -30,7 +30,9 @@ class Parser {
     std::optional<NodeExit> parse() {
         std::optional<NodeExit> exit_node;
         while (peek().has_value()) {
-            if (peek().value().type == TokenType::exit) {
+            if (peek().value().type == TokenType::exit && peek(1).has_value()
+                && peek(1).value().type == TokenType::open_paren) {
+                consume();
                 consume();
                 if (auto node_expr = parse_expr()) {
                     exit_node = NodeExit { .expr = node_expr.value() };
@@ -39,11 +41,18 @@ class Parser {
                     std::cerr << "Invalid expression, missing integer" << std::endl;
                     exit(EXIT_FAILURE);
                 }
+                if (peek().has_value() && peek().value().type == TokenType::close_paren) {
+                    consume();
+                }
+                else {
+                    std::cerr << "Expected closing parenthesis" << std::endl;
+                    exit(EXIT_FAILURE);
+                }
                 if (peek().has_value() && peek().value().type == TokenType::semi) {
                     consume();
                 }
                 else {
-                    std::cerr << "Invalid expression, missing semicolon" << std::endl;
+                    std::cerr << "Expected semicolon" << std::endl;
                     exit(EXIT_FAILURE);
                 }
             }
@@ -54,11 +63,11 @@ class Parser {
     };
 
     private:
-        [[nodiscard]] inline std::optional<Token> peek(int ahead = 1) const {
-            if (m_index + ahead > m_tokens.size()) {
+        [[nodiscard]] inline std::optional<Token> peek(int offset = 0) const {
+            if (m_index + offset >= m_tokens.size()) {
                 return {};
             } else {
-                return m_tokens.at(m_index);
+                return m_tokens.at(m_index + offset);
             }
         };
 
